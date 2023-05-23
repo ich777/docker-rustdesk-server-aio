@@ -3,9 +3,14 @@ FROM ich777/debian-baseimage
 LABEL org.opencontainers.image.authors="admin@minenet.at"
 LABEL org.opencontainers.image.source="https://github.com/ich777/docker-rustdesk-server-aio"
 
+ARG HBBS_V="template"
+ARG HBBR_V="template"
+
 RUN apt-get update && \
-	apt-get -y install --no-install-recommends nano && \
-	rm -rf /var/lib/apt/lists/*
+	wget -O /tmp/hbbs.deb https://github.com/rustdesk/rustdesk-server/releases/download/${HBBS_V}/rustdesk-server-hbbs_${HBBS_V%-*}_amd64.deb && \
+	wget -O /tmp/hbbr.deb https://github.com/rustdesk/rustdesk-server/releases/download/${HBBR_V}/rustdesk-server-hbbr_${HBBR_V%-*}_amd64.deb && \
+	apt-get -y install /tmp/hbbs.deb /tmp/hbbr.deb && \
+	rm -rf /tmp/hbbs.deb /tmp/hbbr.deb /var/lib/apt/lists/*
 
 ENV DATA_DIR="/rustdesk-server"
 ENV HBBS_ENABLED="true"

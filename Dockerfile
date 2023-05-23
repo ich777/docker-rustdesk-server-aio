@@ -8,10 +8,10 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/*
 
 ENV DATA_DIR="/rustdesk-server"
+ENV HBBS_ENABLED="true"
+ENV HBBR_ENABLED="true"
 ENV HBBS_PARAMS=""
 ENV HBBR_PARAMS=""
-ENV HBBS_ENABLED="true"
-ENV HBBS_ENABLED="true"
 ENV UMASK=000
 ENV UID=99
 ENV GID=100

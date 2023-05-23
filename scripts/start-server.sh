@@ -23,4 +23,15 @@ fi
 
 /opt/scripts/start-watchdog.sh &
 
+if [ -f ${DATA_DIR}/id_ed25519.pub ]; then
+  echo
+  echo "--------------------------------------------"
+  echo "Public key:"
+  echo
+  echo "$(cat ${DATA_DIR}/id_ed25519.pub)"
+  echo "--------------------------------------------"
+  echo
+fi
+
+
 tail -f ${DATA_DIR}/hbb.log

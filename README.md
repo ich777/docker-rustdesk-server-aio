@@ -7,9 +7,9 @@ This container includes both the RustDesk Server and the RustDesk Relay in one a
 | Name | Value | Example |
 | --- | --- | --- |
 | HBBS_ENABLED | The server needs by default the following ports to work properly: TCP: 21115, 21116, 21118 UDP: 21116 | true |
-| HBBS_PARAMS | Enter your extra start up parameters for the server here if necessary. | empty |
+| HBBS_PARAMS | Enter your extra start up parameters for the server here if necessary. | --key _ |
 | HBBR_ENABLED | The relay needs by default the following ports to work properly: TCP: 21117, 21119 | true |
-| HBBR_PARAMS | Enter your extra start up parameters for the relay here if necessary. | empty |
+| HBBR_PARAMS | Enter your extra start up parameters for the relay here if necessary. | --key _ |
 | UID | User Identifier | 99 |
 | GID | Group Identifier | 100 |
 | DATA_PERM | Data permissions | 770 |
@@ -20,7 +20,9 @@ This container includes both the RustDesk Server and the RustDesk Relay in one a
 docker run --name RustDeskServer-AiO -d \
     -p 21115-21119:21115-21119 21116:21116/udp -p  \
     --env 'HBBS_ENABLED=true' \
+    --env 'HBBS_PARAMS=--key _' \
     --env 'HBBR_ENABLED=true' \
+    --env 'HBBR_PARAMS=--key _' \
     --env 'UID=99' \
     --env 'GID=100' \
     --env 'DATA_PERM=770' \

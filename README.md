@@ -1,7 +1,7 @@
 # RustDesk Server AiO in Docker optimized for Unraid
 Self-host your own RustDesk Server, it is free and open source.
 
-This container includes both the RustDesk Server and the RustDesk Relay in one and starts it.
+This container includes both the RustDesk Server and the RustDesk Relay in one and starts it (self-hosted version).
 
 ## Env params
 | Name | Value | Example |
